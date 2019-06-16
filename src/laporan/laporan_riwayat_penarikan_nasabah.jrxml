@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     penarikan.`id_siswa` AS penarikan_id_siswa,
+     penarikan.`saldo` AS penarikan_saldo,
+     penarikan.`tgl` AS penarikan_tgl
+FROM
+     `penarikan` penarikan]]>
+	</queryString>
+	<field name="penarikan_id_siswa" class="java.lang.String"/>
+	<field name="penarikan_saldo" class="java.math.BigDecimal"/>
+	<field name="penarikan_tgl" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="61" y="8" width="478" height="33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Laporan Riwayat Penarikan Nasabah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="180" y="46" width="200" height="22"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[SDIT AL-HAMIDIYYAH]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-2" y="3" width="70" height="66"/>
+				<imageExpression><![CDATA["C:\\Users\\Aditya Maulana\\Documents\\NetBeansProjects\\Pemrograman Visual\\src\\laporan\\al-hamidiyah logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="185" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No. Induk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="185" y="19" width="185" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jumlah Penarikan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="370" y="19" width="185" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tanggal Penarikan ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="6" width="553" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="185" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{penarikan_id_siswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="185" y="0" width="185" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{penarikan_saldo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="370" y="0" width="185" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{penarikan_tgl}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

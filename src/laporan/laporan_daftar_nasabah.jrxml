@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     siswa.`id` AS siswa_id,
+     siswa.`id_siswa` AS siswa_id_siswa,
+     siswa.`nama_siswa` AS siswa_nama_siswa,
+     siswa.`alamat` AS siswa_alamat,
+     siswa.`kelas` AS siswa_kelas,
+     siswa.`total_saldo` AS siswa_total_saldo
+FROM
+     `siswa` siswa]]>
+	</queryString>
+	<field name="siswa_id" class="java.lang.Integer"/>
+	<field name="siswa_id_siswa" class="java.lang.String"/>
+	<field name="siswa_nama_siswa" class="java.lang.String"/>
+	<field name="siswa_alamat" class="java.lang.String"/>
+	<field name="siswa_kelas" class="java.lang.String"/>
+	<field name="siswa_total_saldo" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="139" y="11" width="319" height="33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Laporan Daftar Nasabah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="191" y="46" width="200" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[SDIT AL-HAMIDIYYAH]]></text>
+			</staticText>
+			<image>
+				<reportElement x="5" y="4" width="70" height="66"/>
+				<imageExpression><![CDATA["C:\\Users\\Aditya Maulana\\Documents\\NetBeansProjects\\Pemrograman Visual\\src\\laporan\\al-hamidiyah logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="39" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="39" y="19" width="92" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No. Induk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="131" y="19" width="143" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="274" y="19" width="92" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="366" y="19" width="92" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="458" y="19" width="92" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Saldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="39" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{siswa_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="39" y="0" width="92" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{siswa_id_siswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="131" y="0" width="143" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{siswa_nama_siswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="274" y="0" width="92" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{siswa_alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="366" y="0" width="92" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{siswa_kelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="458" y="0" width="92" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{siswa_total_saldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
